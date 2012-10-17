@@ -41,6 +41,13 @@ Given /^the blog is set up$/ do
                 :profile_id => 1,
                 :name => 'admin',
                 :state => 'active'})
+  # ADDED BY JHUDIONO #
+  User.create!({:login => 'batman',
+ 		:password => 'batword',
+		:email => 'me@batmail.com',
+		:profile_id =>2,
+		:name => 'batman',
+		:state => 'active'})
 end
 
 And /^I am logged into the admin panel$/ do

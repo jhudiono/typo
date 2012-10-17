@@ -61,6 +61,21 @@ class Article < Content
 
   setting :password,                   :string, ''
 
+  # ADDED BY JHUDIONO #
+
+  def merge_with(other_article)
+    if (self.body == nil) 
+       self.body = other_article.body
+    else 
+       self.body = self.body + other_article.body
+    end
+    self.published_comments << other_article.published_comments
+    # use << for comments
+    self.save
+  end
+
+  ###
+
   def initialize(*args)
     super
     # Yes, this is weird - PDC
@@ -95,6 +110,7 @@ class Article < Content
   include Article::States
 
   class << self
+
     def last_draft(article_id)
       article = Article.find(article_id)
       while article.has_child?

@@ -1,0 +1,16 @@
+<!-- ADDED BY JHUDIONO -->
+
+
+<h4><%= _("Merge Articles") %></h4>
+
+<%= form_for @article, :url => { :action => 'merge', :id => params[:id] } do |f| %>
+
+<%= label 'article', 'merge_with', 'Article ID'%>
+
+<%= text_field_tag 'merge_with' %>
+
+<%= submit_tag 'Merge' %>
+
+<% end %>
+
+
