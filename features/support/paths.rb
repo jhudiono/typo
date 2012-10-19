@@ -28,6 +28,10 @@ module NavigationHelpers
       article_title = $1.split(/\s+/)
       '/admin/content/edit/'+Article.find_by_title(article_title).id.to_s
 
+    when /^the edit page for the "(.*)" category/
+      category_name = $1.split(/\s+/)
+       '/admin/categories/edit/'+Category.find_by_name(category_name).id.to_s
+
     else
       begin
         page_name =~ /^the (.*) page$/

@@ -22,7 +22,6 @@ Given /^the following articles exist/ do |article_table|
     fill_in "article__body_and_extended_editor", :with => article["body"]
     click_button("Publish")
     Article.find_by_title(article["title"]).update_attributes!(:author => article["author"])
-    # Article.create!(:type => article["type"], :title => article["title"], :author => article["author"], :body => article["body"])
   end
   visit '/accounts/logout'
 end
@@ -49,7 +48,6 @@ Then /^the comments of "(.*)" should contain "(.*)"$/ do |title, comment|
   else 
     assert true
   end
-  # assert Article.find_by_title(title).published_comments.should.contain(comment)
 end
 
 Then /^print content/ do 
